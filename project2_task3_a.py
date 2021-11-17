@@ -52,7 +52,7 @@ def write_file(path, files_list, dst):
 if __name__ == '__main__':
     pars = create_parser()
     args = pars.parse_args()
-    if args.zip_src[-4::] == '.zip':
+    if os.path.exists(args.zip_src):
         if os.path.isfile(args.zip_src):
             write_file(args.zip_src, search_zip(args.zip_src, args.find), args.zip_dst)
         else:
